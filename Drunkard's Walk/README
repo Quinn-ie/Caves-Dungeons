@@ -1,0 +1,4 @@
+The run and debug button wont produce a second map after its first 
+run on opening vs code.
+
+Instead in the terminal type "python drunkwalk.py" to run the code.
