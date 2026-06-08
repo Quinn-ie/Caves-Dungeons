@@ -12,12 +12,14 @@ DIRECTIONS = [
     (0,-1)   #Up
 ]
 
-random.seed(42)
+random.seed(127)
 
 def generate():
     grid = [[WALL for _ in range(WIDTH)] for _ in range(HEIGHT)]
-    target = int(WIDTH * HEIGHT * 0.4)
+    target = int(WIDTH * HEIGHT * 0.2)
     floor_count = 0
+    # x = WIDTH // 2
+    # y = HEIGHT // 2
     walkers = [
         [WIDTH // 2 + 5, HEIGHT // 2],
         [WIDTH // 2 - 5, HEIGHT // 2],
@@ -26,11 +28,19 @@ def generate():
     ]
     last_direction = random.choice(DIRECTIONS)
     
+    # for _ in range(STEPS):
+    #     grid[y][x] = FLOOR
+    #     dx, dy = random.choice(DIRECTIONS)
+    #     x += dx
+    #     y += dy
+    #     x = max(0, min(WIDTH - 1, x))
+    #     y = max(0, min(HEIGHT - 1, y))
+    
     while floor_count < target:
         for w in walkers:
             x, y = w
             
-            if random.random() < 0.4:
+            if random.random() < 0.9:
                 dx, dy = last_direction
             else:
                 dx, dy = random.choice(DIRECTIONS)
