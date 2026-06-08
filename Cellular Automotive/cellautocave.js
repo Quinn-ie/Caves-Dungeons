@@ -9,7 +9,7 @@ function setup() {
 
     for(let j = 0; j < h; j++) {
         for(let i = 0; i < w; i++) {
-            const solid = random(1) < 0.45;
+            const solid = random(1) < 0.65;
             tiles.push(solid);
         }
     }
@@ -121,14 +121,14 @@ function getLargestRegion(regions) {
     return largest;
 }
 
-// function removeRegions(regions, keepRegion) {
-//     for(let region of regions) {
-//         if(region === keepRegion) continue;
-//         for(let tile of region) {
-//             tiles[index(tile.x, tile.y)] = true;
-//         }
-//     }
-// }
+function removeRegions(regions, keepRegion) {
+    for(let region of regions) {
+        if(region === keepRegion) continue;
+        for(let tile of region) {
+            tiles[index(tile.x, tile.y)] = true;
+        }
+    }
+}
 
 function floodFill(x, y) {
     let stack = [[x, y]];
